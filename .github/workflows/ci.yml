@@ -1,0 +1,54 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main"]
+  pull_request:
+    branches: [ "main"]
+  workflow_dispatch:
+
+jobs:
+  build-and-test:
+    runs-on: self-hosted
+    strategy:
+      matrix:
+        dotnet: [ "9.0.x" ]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Cache NuGet packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.nuget/packages
+          key: nuget-${{ matrix.dotnet }}-${{ hashFiles('**/*.csproj') }}
+          restore-keys: |
+            nuget-${{ matrix.dotnet }}-
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: ${{ matrix.dotnet }}
+
+      - name: Restore
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --no-restore -c Release
+
+      - name: Run unit and integration tests
+        run: dotnet test --no-build -c Release --verbosity normal
+
+      - name: Publish (artifact)
+        if: success()
+        run: |
+          dotnet publish WOL-Server -c Release -o ./artifacts
+          dotnet pu
+
+      - name: Upload artifact
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          path: ./artifacts
+          name: wol-server
