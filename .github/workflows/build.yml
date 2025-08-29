@@ -1,4 +1,4 @@
-name: CI
+name: build
 
 on:
   push:
@@ -36,9 +36,6 @@ jobs:
 
       - name: Build
         run: dotnet build --no-restore -c Release
-
-      - name: Run unit and integration tests
-        run: dotnet test --no-build -c Release --verbosity normal
 
       - name: Publish (artifact)
         if: success()

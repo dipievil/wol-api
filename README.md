@@ -74,7 +74,7 @@ Example usage with the API (Swagger or curl):
 ```powershell
 # prints a single-line JSON with the token
 WOL-TokenGen.exe johndoe 60
-# or: dotnet run --project WOL-TokenGen -- --subject diego --mins 60
+# or: dotnet run --project WOL-TokenGen -- --subject johndoe --mins 60
 ```
 
 2) Use in Swagger: click Authorize and paste `Bearer {token}`.
@@ -97,8 +97,6 @@ You can run the same API as a Windows Service using the `WOL-WindowsService` pro
 
 ```powershell
 dotnet publish .\WOL-WindowsService -c Release -r win-x64 --self-contained false
-# published files will be under:
-# .\WOL-WindowsService\bin\Release\net9.0\win-x64\publish\
 ```
 
 2) Install the service (run as Administrator):
