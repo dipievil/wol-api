@@ -1,0 +1,9 @@
+@WOL_Server_HostAddress = http://localhost:5157
+
+POST {{WOL_Server_HostAddress}}/wake-on-lan
+Content-Type: application/json
+
+{
+    "macAddress": "00:11:22:33:44:55"
+}
+

@@ -1,0 +1,117 @@
+# Visual Studio / .NET / C# gitignore
+
+## Build artifacts
+bin/
+obj/
+[Bb]uild/
+out/
+publish/
+*.ilk
+*.meta
+*.obj
+*.pch
+*.pdb
+*.exe
+*.dll
+*.app
+*.iobj
+*.ipdb
+*.log
+
+## Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+## Visual Studio Code
+.vscode/
+.history/
+
+## Rider
+.idea/
+*.sln.iml
+*.DotSettings.user
+
+## NuGet
+packages/
+*.nupkg
+*.snupkg
+project.lock.json
+project.fragment.lock.json
+artifacts/
+.nuget/
+packages.config
+package.lock.json
+
+## ASP.NET / IIS / Azure
+*.Publish.xml
+*.azurePubxml
+*.publishsettings
+*.pubxml.user
+*.dbmdl
+App_Data/
+Temporary ASP.NET Files/
+aspnet_client/
+wwwroot/**/*.map
+
+## Entity Framework / Migrations
+Migrations/ModelSnapshot*
+*.efmodel*
+
+## Test results
+TestResults/
+*.trx
+*.coverage
+*.coveragexml
+*.nunit.xml
+*.testsettings
+*.vsmdi
+
+## Rider / ReSharper / JetBrains
+_ReSharper*/
+*.DotSettings
+*.ReSharper
+resharper.*
+.idea/
+*.sln.DotSettings
+JetBrains/
+
+## Code analysis / profiling
+*.CodeAnalysisLog
+*.cache
+*.vsp
+*.vspx
+*.psess
+*.userprefs
+
+## Logs
+*.log
+
+## Operating system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+## Secrets / Local settings
+secrets.json
+appsettings*.Local.json
+local.settings.json
+
+## Node / npm (if present)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Ignore compiled Razor views
+*.g.cs
+*.g.i.cs
+
+WOL-Server/.env
+WOL-TokenGen/.env
+.env
+**/.env
+
+# End of file
+
